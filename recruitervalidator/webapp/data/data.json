@@ -1,0 +1,16 @@
+{
+    "role_groups": [
+        {
+            "id": "a",
+            "name": "Test a"
+        },
+        {
+            "id": "b",
+            "name": "Test b"
+        },
+        {
+            "id": "c",
+            "name": "Test c"
+        }
+    ]
+}

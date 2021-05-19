@@ -1,0 +1,126 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:unified="sap.ui.unified" controllerName="recruitervalidator.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" titleLevel="H6">
+					<content>
+                    	<NavContainer
+                        pages="{fileContent>/}"
+			id="navCon"
+			width="100%"
+			height="90%"
+			class="navContainerControl sapUiSmallMarginBottom">
+			<Page
+				showHeader="false"
+				>
+                
+				<l:BlockLayout>
+				
+				<l:BlockLayoutRow >
+					<l:BlockLayoutCell >
+						<Label text="Text" design="Bold" required="true" width="100%"/>
+						
+					
+					
+						<TextArea value="{fileContent>text}" width="100%"/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+                <l:BlockLayoutRow >
+					<l:BlockLayoutCell >
+						<Label text="Predefined Solution" design="Bold" required="true" width="100%"/>
+						
+					
+					
+						<ComboBox width="100%" />
+                        
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+                <l:BlockLayoutRow >
+					<l:BlockLayoutCell >
+						<Label text="My Solution" design="Bold" required="true" width="100%"/>
+						
+					
+					
+						<Input />
+                        
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+                <l:BlockLayoutRow >
+					<l:BlockLayoutCell >
+						<Label text="Tags" design="Bold" required="true" width="100%"/>
+						
+					
+					
+						<TextArea value="{fileContent>text}" width="100%"/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+									
+			</l:BlockLayout>
+            
+			</Page>
+			
+		</NavContainer>
+					   <!-- <Table noDataText="Drop column list items here and columns in the area above" id="tableId" items="{fileContent>/}">
+					        <items>
+					            <ColumnListItem type="Inactive">
+					                <cells>
+					                    <TextArea value="{fileContent>text}"/>
+					                    <ComboBox/>
+					                    <Input/>
+                                        <TextArea/>
+                                        </cells>
+					            </ColumnListItem>
+					        </items>
+					        <columns>
+					            <Column>
+					                <header>
+					                    <Label text="Text"/>
+					                </header>
+					            </Column>
+                                <Column>
+					                <header>
+					                    <Label text="Solutions"/>
+					                </header>
+					            </Column>
+                                <Column>
+					                <header>
+					                    <Label text="Own Solution "/>
+					                </header>
+					            </Column>
+                                <Column>
+					                <header>
+					                    <Label text="Keywords"/>
+					                </header>
+					            </Column>
+                                
+					           </columns></Table>-->
+					</content>
+				<subHeader>
+				    <Toolbar width="100%">
+				        <content>
+				            <ComboBox items="{/role_groups}" selectedKey="{viewModel>/selectedRoleGroup}" change="onChangeRoleGroup">
+				                <items>
+				                    <core:Item key="{id}" text="{name}"/>
+				                    
+				                    </items>
+				                
+				            </ComboBox>
+				            <unified:FileUploader enabled="{= ${viewModel>/selectedRoleGroup} ? true : false}" fileType="csv" mimeType="application/vnd.ms-excel" maximumFileSize="1000000000" placeholder="Select your file" buttonText="Browse" change="uploadData" width="100%" value="{viewModel>/fileName}"/>
+				        </content>
+				    </Toolbar>
+				</subHeader>
+				<footer>
+				    <Toolbar width="100%" id="toolbar2">
+				        <content>
+                        <!--<Button text="Prev" press="onPrev" />-->
+                        <Button text="Next" press="onNext" visible="{= !${viewModel>/isFinish}}"/>
+                        
+				        <Button xmlns="sap.m" text="Submit" id="button1" icon="sap-icon://process" type="Accept" visible="{viewModel>/isFinish}"/>
+				        </content>
+				    </Toolbar>
+				</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
